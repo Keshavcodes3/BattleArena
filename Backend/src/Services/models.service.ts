@@ -1,30 +1,37 @@
-import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
-import apiConfig from "../config/config.js";
-import { ChatMistralAI } from "@langchain/mistralai";
+import { ChatGoogle } from "@langchain/google";
+import { ChatMistralAI } from "@langchain/mistralai"
+import {ChatCohere} from "@langchain/cohere"
+import apiConfig from "../config/config.js"
 
-import {ChatCohere} from '@langchain/cohere'
 
-const geminiModel=new ChatGoogleGenerativeAI({
-    model:"gemini-flash-latest",
-    apiKey:apiConfig.GOOGLE_API_KEY
+const geminiModel = new ChatGoogle({
+  apiKey: apiConfig.GEMINIT_API_KEY,
+  model: "gemini-2.5-flash",
 })
 
-const mistralModel=new ChatMistralAI({
-    model:"mistral-small",
-    apiKey:apiConfig.MISTRAL_API_KEY
+const mistralModel = new ChatMistralAI({
+  apiKey: apiConfig.MISTRAL_API_KEY,
+  model: "mistral-medium",
 })
 
 
-const cohereModel=new ChatCohere({
-    apiKey:apiConfig.COHERE_API_KEY,
-    model:"command-xlarge-20221108"
+const cohereModel = new ChatCohere({
+  apiKey: apiConfig.COHERE_API_KEY,
+  model: "command-a-03-2025",
 })
 
-const aiModels={
-    geminiModel,
-    mistralModel,
-    cohereModel
-
+type AIMODELS = {
+  cohereModel:ChatCohere,
+  geminiModel:ChatGoogle,
+  mistralModel:ChatMistralAI
 }
+
+
+const aiModels:AIMODELS = {
+  cohereModel,
+  geminiModel,
+  mistralModel
+}
+
 
 export default aiModels

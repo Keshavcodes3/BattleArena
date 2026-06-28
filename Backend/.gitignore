@@ -24,45 +24,6 @@ build/
 out/
 
 # ==========================================
-# Python
-# ==========================================
-__pycache__/
-*.py[cod]
-*$py.class
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.poetry.lock
-.pytest_cache/
-.mypy_cache/
-
-# ==========================================
-# Go
-# ==========================================
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-*.test
-*.out
-bin/
-
-# ==========================================
-# Java / Maven / Gradle
-# ==========================================
-.gradle/
-build/
-target/
-*.class
-*.jar
-*.war
-*.ear
-
-# ==========================================
 # Databases & Caching
 # ==========================================
 *.db
